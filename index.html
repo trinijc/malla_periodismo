@@ -1,14 +1,31 @@
-<!-- index.html -->
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Interactiva Periodismo UC</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    body {
+      overflow-x: auto;
+    }
+    .malla-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+
+    .semestre {
+      min-width: 240px;
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
   <h1>Malla Interactiva – Periodismo UC</h1>
+
+  <div class="malla-container">
 
   <!-- Cada semestre está contenido en un <section> con todos sus ramos -->
   <!-- Para cada ramo usamos data-prereqs con los ID de sus requisitos separados por comas -->
