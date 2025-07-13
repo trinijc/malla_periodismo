@@ -1,82 +1,99 @@
-/* -------------------------------------------------- */
-/* estilos.css */
-
-/* ---------- VARIABLES DE COLOR ---------- */
-:root {
-  --rosa: #f9d7e3;
-  --gris: #e0e0e0;
-  --gris-texto: #8a8a8a;
-  --verde-aprobado: #d4edda;
-  --lila: #e9d6ff;
-  --celeste: #d6f1ff;
-  --verde-opr: #d6fcd6;
-}
-
-/* ---------- RESET BÁSICO ---------- */
+/* ====================
+   Colores y base
+==================== */
 body {
+  background-color: #ffffff;
   margin: 0;
-  padding: 2rem;
-  font-family: system-ui, sans-serif;
-  background: #ffffff;
-  color: #222;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+/* ====================
+   Contenedor horizontal
+==================== */
+.malla-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1rem;
+  overflow-x: auto;
 }
 
+/* ====================
+   Semestres en columnas
+==================== */
 .semestre {
-  margin-bottom: 2rem;
+  min-width: 250px;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f9f9f9;
 }
 
 .semestre h2 {
-  margin: 1rem 0;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 0.75rem;
 }
 
-/* ---------- CURSOS ---------- */
+/* ====================
+   Estilo base de ramos
+==================== */
 .ramo {
-  background: var(--rosa);
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin: 0.35rem 0;
+  background-color: #f9d6e5; /* rosado claro */
+  color: #333;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
-  user-select: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Estado bloqueado */
-.bloqueado {
-  background: var(--gris);
-  color: var(--gris-texto);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-/* Estado aprobado */
-.aprobado {
-  background: var(--verde-aprobado);
-}
-
-/* Colores especiales por tipo */
+/* ====================
+   Colores por tipo
+==================== */
 .tipo-lila {
-  background: var(--lila);
+  background-color: #e6ccf2 !important;
 }
 
 .tipo-celeste {
-  background: var(--celeste);
+  background-color: #cde9f9 !important;
 }
 
 .tipo-opr {
-  background: var(--verde-opr);
+  background-color: #d2f2d2 !important;
 }
 
-/* Si un curso especial está bloqueado, que predomine el gris */
-.bloqueado.tipo-lila,
-.bloqueado.tipo-celeste,
-.bloqueado.tipo-opr {
-  background: var(--gris);
+/* ====================
+   Estados dinámicos
+==================== */
+.bloqueado {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
-/* ------------------------------ */
+.aprobado {
+  border: 2px solid #4caf50;
+  font-weight: bold;
+  background-color: #d4edda !important;
+  color: #1e4620;
+}
+
+/* ====================
+   Responsivo (opcional)
+==================== */
+@media (max-width: 600px) {
+  .ramo {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .semestre {
+    min-width: 200px;
+  }
+}
