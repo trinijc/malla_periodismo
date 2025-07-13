@@ -1,39 +1,42 @@
-/* script.js */
+document.addEventListener("DOMContentLoaded", function () {
+  const ramos = document.querySelectorAll(".ramo");
 
-// Al cargar la página, bloqueamos todos los cursos con prerequisitos
-window.addEventListener("DOMContentLoaded", () => {
-  const cursos = document.querySelectorAll(".ramo");
-  cursos.forEach(curso => {
-    const prereqs = curso.dataset.prereqs;
+  // Estado inicial: bloquear todos los que tienen prerequisitos
+  ramos.forEach(ramo => {
+    const prereqs = ramo.dataset.prereqs;
     if (prereqs) {
-      curso.classList.add("bloqueado");
+      ramo.classList.add("bloqueado");
     }
-    // Añadimos el listener a todos (aunque bloqueados no reaccionarán)
-    curso.addEventListener("click", () => aprobarCurso(curso));
   });
-});
 
-function aprobarCurso(curso) {
-  // Evita aprobar dos veces
-  if (curso.classList.contains("aprobado")) return;
+  // Evento al hacer clic
+  ramos.forEach(ramo => {
+    ramo.addEventListener("click", function () {
+      if (ramo.classList.contains("bloqueado")) return;
 
-  curso.classList.add("aprobado");
+      ramo.classList.toggle("aprobado");
 
-  // Desbloquea los que dependan de éste
-  const id = curso.id;
-  const dependientes = document.querySelectorAll(`[data-prereqs*="${id}"]`);
-
-  dependientes.forEach(dep => {
-    // Comprueba si todos sus prerequisitos están aprobados
-    const prereqIds = dep.dataset.prereqs.split(",").map(p => p.trim());
-    const todosListos = prereqIds.every(pid => {
-      const prereqEl = document.getElementById(pid);
-      return prereqEl && prereqEl.classList.contains("aprobado");
+      actualizarDesbloqueos();
     });
-    if (todosListos) {
-      dep.classList.remove("bloqueado");
-      // Vuelve a aplicar su color original (por si era tipo especial)
-    }
   });
-}
 
+  function actualizarDesbloqueos() {
+    ramos.forEach(ramo => {
+      const prereqs = ramo.dataset.prereqs;
+      if (prereqs) {
+        const ids = prereqs.split(",");
+        const todosAprobados = ids.every(id => {
+          const prereqRamo = document.getElementById(id.trim());
+          return prereqRamo && prereqRamo.classList.contains("aprobado");
+        });
+
+        if (todosAprobados) {
+          ramo.classList.remove("bloqueado");
+        } else {
+          ramo.classList.add("bloqueado");
+          ramo.classList.remove("aprobado");
+        }
+      }
+    });
+  }
+});
