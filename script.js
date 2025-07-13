@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const ramos = document.querySelectorAll(".ramo");
 
-  // Estado inicial: bloquear todos los que tienen prerequisitos
+  // Paso 1: Bloquear ramos con prerequisitos
   ramos.forEach(ramo => {
     const prereqs = ramo.dataset.prereqs;
     if (prereqs) {
@@ -9,17 +9,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Evento al hacer clic
+  // Paso 2: Agregar eventos de clic
   ramos.forEach(ramo => {
     ramo.addEventListener("click", function () {
+      // Si está bloqueado, no hacer nada
       if (ramo.classList.contains("bloqueado")) return;
 
+      // Alternar clase de aprobado
       ramo.classList.toggle("aprobado");
 
+      // Actualizar desbloqueos
       actualizarDesbloqueos();
     });
   });
 
+  // Paso 3: Desbloquear ramos cuyos requisitos están cumplidos
   function actualizarDesbloqueos() {
     ramos.forEach(ramo => {
       const prereqs = ramo.dataset.prereqs;
