@@ -97,3 +97,89 @@ body {
     min-width: 200px;
   }
 }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  margin-bottom: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: #e0e0e0;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.malla-container {
+  padding: 1rem;
+}
+
+.semestre {
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.ramo {
+  padding: 0.6rem;
+  margin: 0.4rem 0;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #ddd;
+  color: #444;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.ramo:hover {
+  background-color: #ccc;
+}
+
+.ramo.aprobado {
+  background-color: #ffb6c1; /* rosado claro */
+  color: #222;
+  font-weight: bold;
+}
+
+.ramo.bloqueado {
+  background-color: #aaa;
+  color: #eee;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tipo-lila {
+  background-color: #e6ccf2;
+}
+
+.tipo-celeste {
+  background-color: #cceeff;
+}
+
+.tipo-opr {
+  background-color: #ccf2cc;
+}
+
+/* Estilo para scroll horizontal en pantallas pequeñas */
+.malla-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.malla-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
