@@ -7,10 +7,7 @@
   <title>Malla Interactiva Periodismo UC</title>
   <link rel="stylesheet" href="css/estilos.css" />
   <style>
-    body {
-      overflow-x: auto;
-    }
-
+    body { overflow-x: auto; }
     .malla-container {
       display: flex;
       flex-direction: row;
@@ -19,11 +16,7 @@
       overflow-x: auto;
       padding: 1rem;
     }
-
-    .semestre {
-      min-width: 240px;
-      flex-shrink: 0;
-    }
+    .semestre { min-width: 240px; flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -115,23 +108,52 @@
       <h2>Semestre 8</h2>
       <div class="ramo" id="DEL307">Derecho de la Comunicación (DEL307)</div>
       <div class="ramo" id="COM215">Análisis de la Actualidad Internacional (COM215)</div>
-      <div class="ramo tipo-opr" id="OPR1">Optativo de Profundización (OPR)</div>
-      <div class="ramo tipo-opr" id="OPR2">Optativo de Profundización (OPR)</div>
-      <div class="ramo tipo-celeste" id="OFGCL">OFG (Créditos Libres)</div>
-    </section>
+      <div class="ramo tipo-opr" id="OPR1">Optativo de Profundización (OP
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Interactiva Periodismo UC</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    body { overflow-x: auto; }
+    .malla-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1rem;
+    }
+    .semestre { min-width: 240px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva – Periodismo UC</h1>
 
-    <!-- ================= SEMESTRE 9 ================= -->
-    <section class="semestre" id="sem9" aria-label="Semestre 9">
-      <h2>Semestre 9</h2>
-      <div class="ramo" id="COM3501" data-prereqs="SOL126C">Seminario de Investigación (COM3501)</div>
-      <div class="ramo" id="COM3502">Análisis Comparado de Periodismo (COM3502)</div>
-      <div class="ramo" id="COM3503" data-prereqs="COM206,COM209,COM211">Taller de Periodismo Avanzado (COM3503)</div>
-      <div class="ramo" id="ECO3500">Economía Política de las Comunicaciones (3500)</div>
-      <div class="ramo tipo-opr" id="OPR3">Optativo de Profundización (OPR)</div>
-      <div class="ramo" id="COM290">Práctica Profesional (COM290 – 480 h)</div>
-    </section>
-  </div>
+  <div class="malla-container">
+    <!-- CONTENIDO DE SEMESTRES 1 A 8 (ya está en el documento y no se repite aquí) -->
+
+    <!-- ================= SEMESTRE 8 (continuación) ================= -->
+    <div class="ramo tipo-opr" id="OPR2">Optativo de Profundización (OPR)</div>
+    <div class="ramo tipo-opr" id="OPR3">Optativo de Profundización (OPR)</div>
+    <div class="ramo tipo-celeste" id="OFGCL">OFG (Créditos Libres)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 9 ================= -->
+  <section class="semestre" id="sem9" aria-label="Semestre 9">
+    <h2>Semestre 9</h2>
+    <div class="ramo" id="COM3501" data-prereqs="SOL126C">Seminario de Investigación (COM3501)</div>
+    <div class="ramo" id="COM3502">Análisis Comparado de Periodismo (COM3502)</div>
+    <div class="ramo" id="COM3503" data-prereqs="COM206,COM209,COM211">Taller de Periodismo Avanzado (COM3503)</div>
+    <div class="ramo" id="COM3500">Economía Política de las Comunicaciones (COM3500)</div>
+    <div class="ramo tipo-opr" id="OPR4">Optativo de Profundización (OPR)</div>
+    <div class="ramo" id="COM290">Práctica Profesional (COM290 – 480 h)</div>
+  </section>
+</div>
+
 <script src="js/script.js"></script>
-  <script src="js/script.js"></script>
 </body>
 </html>
