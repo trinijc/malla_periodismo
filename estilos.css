@@ -1,1 +1,82 @@
+/* -------------------------------------------------- */
+/* estilos.css */
 
+/* ---------- VARIABLES DE COLOR ---------- */
+:root {
+  --rosa: #f9d7e3;
+  --gris: #e0e0e0;
+  --gris-texto: #8a8a8a;
+  --verde-aprobado: #d4edda;
+  --lila: #e9d6ff;
+  --celeste: #d6f1ff;
+  --verde-opr: #d6fcd6;
+}
+
+/* ---------- RESET BÁSICO ---------- */
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #222;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.semestre {
+  margin-bottom: 2rem;
+}
+
+.semestre h2 {
+  margin: 1rem 0;
+}
+
+/* ---------- CURSOS ---------- */
+.ramo {
+  background: var(--rosa);
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0.35rem 0;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  user-select: none;
+}
+
+/* Estado bloqueado */
+.bloqueado {
+  background: var(--gris);
+  color: var(--gris-texto);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Estado aprobado */
+.aprobado {
+  background: var(--verde-aprobado);
+}
+
+/* Colores especiales por tipo */
+.tipo-lila {
+  background: var(--lila);
+}
+
+.tipo-celeste {
+  background: var(--celeste);
+}
+
+.tipo-opr {
+  background: var(--verde-opr);
+}
+
+/* Si un curso especial está bloqueado, que predomine el gris */
+.bloqueado.tipo-lila,
+.bloqueado.tipo-celeste,
+.bloqueado.tipo-opr {
+  background: var(--gris);
+}
+
+/* ------------------------------ */
