@@ -1,183 +1,139 @@
-/* ====================
-   Colores y base
-==================== */
-body {
-  background-color: #ffffff;
-  margin: 0;
-  padding: 1rem;
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-}
-
-/* ====================
-   Contenedor horizontal
-==================== */
-.malla-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-/* ====================
-   Semestres en columnas
-==================== */
-.semestre {
-  min-width: 250px;
-  flex-shrink: 0;
-  border: 1px solid #ccc;
-  padding: 0.75rem;
-  border-radius: 8px;
-  background: #f9f9f9;
-}
-
-.semestre h2 {
-  text-align: center;
-  font-size: 16px;
-  margin-bottom: 0.75rem;
-}
-
-/* ====================
-   Estilo base de ramos
-==================== */
-.ramo {
-  background-color: #f9d6e5; /* rosado claro */
-  color: #333;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-/* ====================
-   Colores por tipo
-==================== */
-.tipo-lila {
-  background-color: #e6ccf2 !important;
-}
-
-.tipo-celeste {
-  background-color: #cde9f9 !important;
-}
-
-.tipo-opr {
-  background-color: #d2f2d2 !important;
-}
-
-/* ====================
-   Estados dinámicos
-==================== */
-.bloqueado {
-  background-color: #ccc !important;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.aprobado {
-  border: 2px solid #4caf50;
-  font-weight: bold;
-  background-color: #d4edda !important;
-  color: #1e4620;
-}
-
-/* ====================
-   Responsivo (opcional)
-==================== */
-@media (max-width: 600px) {
-  .ramo {
-    font-size: 13px;
-    padding: 8px;
-  }
-
-  .semestre {
-    min-width: 200px;
-  }
+/* Reset y base */
+* {
+  box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: white;
-  color: #333;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  color: #222;
 }
 
 h1 {
   text-align: center;
-  padding: 1rem;
-  background-color: #f4f4f4;
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 
-h2 {
-  text-align: center;
-  font-size: 1.1rem;
-  background-color: #e0e0e0;
-  margin: 0;
-  padding: 0.5rem;
+#malla-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 100vw;
+  overflow-x: auto;
+  padding-bottom: 20px;
 }
 
-.malla-container {
-  padding: 1rem;
-}
-
+/* Cada semestre horizontal */
 .semestre {
-  background-color: #fafafa;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 0.5rem;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 5px;
+  border-bottom: 2px solid #ccc;
 }
 
-.ramo {
-  padding: 0.6rem;
-  margin: 0.4rem 0;
-  border-radius: 8px;
-  text-align: center;
-  background-color: #ddd;
-  color: #444;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: 500;
-  font-size: 0.95rem;
+.semestre h2 {
+  min-width: 150px;
+  flex-shrink: 0;
+  color: #555;
+  align-self: center;
+  margin-right: 15px;
   user-select: none;
 }
 
-.ramo:hover {
-  background-color: #ccc;
+/* Tarjeta del ramo */
+.ramo {
+  flex-shrink: 0;
+  width: 180px;
+  min-height: 100px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 6px rgb(0 0 0 / 0.1);
+  cursor: default;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  transition: background-color 0.3s;
 }
 
-.ramo.aprobado {
-  background-color: #ffb6c1; /* rosado claro */
-  color: #222;
-  font-weight: bold;
-}
-
+/* Colores según estado */
 .ramo.bloqueado {
+  background-color: #ccc;
+  color: #555;
+}
+
+.ramo.desbloqueado {
+  background-color: #f8d7e8; /* rosado claro */
+  color: #3a0f3a;
+  cursor: pointer;
+}
+
+/* Colores especiales */
+.lila {
+  background-color: #d8ccf7 !important;
+  color: #2e2a66 !important;
+}
+.celeste {
+  background-color: #caf0f8 !important;
+  color: #055160 !important;
+}
+.verde {
+  background-color: #d8f7d8 !important;
+  color: #2e662e !important;
+}
+
+/* Botón aprobar */
+.ramo button {
+  margin-top: 8px;
+  padding: 6px 8px;
+  border: none;
+  background-color: #7a377c;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  user-select: none;
+}
+.ramo button:hover:not(:disabled) {
+  background-color: #9c53a0;
+}
+.ramo button:disabled {
   background-color: #aaa;
-  color: #eee;
-  cursor: not-allowed;
-  opacity: 0.6;
+  cursor: default;
 }
 
-.tipo-lila {
-  background-color: #e6ccf2;
+/* Ramo aprobado */
+.ramo.aprobado {
+  background-color: #a3d39c !important;
+  color: #1f3d13 !important;
+  cursor: default;
+}
+.ramo.aprobado button {
+  background-color: #4a7c29;
+  cursor: default;
 }
 
-.tipo-celeste {
-  background-color: #cceeff;
-}
-
-.tipo-opr {
-  background-color: #ccf2cc;
-}
-
-/* Estilo para scroll horizontal en pantallas pequeñas */
-.malla-container::-webkit-scrollbar {
+/* Scroll styling para semestres */
+.semestre::-webkit-scrollbar {
   height: 8px;
 }
+.semestre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.semestre::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.semestre::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 .malla-container::-webkit-scrollbar-thumb {
   background: #ccc;
