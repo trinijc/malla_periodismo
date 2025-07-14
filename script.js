@@ -2,75 +2,69 @@ document.addEventListener("DOMContentLoaded", () => {
   const ramos = document.querySelectorAll(".ramo");
 
   ramos.forEach(ramo => {
-    const prereqs = ramo.dataset.prereqs;
+    const prereqs = (ramo.dataset.prereqs || "").trim();
 
-    if (prereqs && prereqs.trim() !== "") {
+    // Evalúa si debe estar bloqueado o no al cargar
+    if (prereqs !== "") {
       const requisitos = prereqs.split(",").map(id => id.trim());
       const todosAprobados = requisitos.every(id => {
         const req = document.getElementById(id);
         return req && req.classList.contains("aprobado");
       });
-
-      if (!todosAprobados) {
-        ramo.classList.add("bloqueado");
-      } else {
-        ramo.classList.remove("bloqueado"); // Asegura que si ya cumple prereqs no quede bloqueado
-      }
+      ramo.classList.toggle("bloqueado", !todosAprobados);
     } else {
-      ramo.classList.remove("bloqueado"); // Sin prereqs, no bloqueado
+      ramo.classList.remove("bloqueado");
     }
 
-    // Listener para marcar como aprobado
+    // Asegura que los ramos especiales sean siempre clickeables
+    if (ramo.classList.contains("tipo-lila") ||
+        ramo.classList.contains("tipo-celeste") ||
+        ramo.classList.contains("tipo-opr")) {
+      ramo.classList.remove("bloqueado");
+    }
+
+    // Clic para marcar como aprobado
     ramo.addEventListener("click", () => {
       if (ramo.classList.contains("bloqueado") || ramo.classList.contains("aprobado")) return;
-
       ramo.classList.add("aprobado");
+      actualizarBloqueos();
+    });
 
-      // Desbloquea los dependientes
-      const id = ramo.id;
-      const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
-
-      dependientes.forEach(dep => {
-        const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim());
-        const todosAprobados = prereqList.every(pid => {
-          const prereqEl = document.getElementById(pid);
-          return prereqEl && prereqEl.classList.contains("aprobado");
-        });
-
-        if (todosAprobados) {
-          dep.classList.remove("bloqueado");
-        }
-      });
+    // Doble clic para desmarcar
+    ramo.addEventListener("dblclick", () => {
+      if (!ramo.classList.contains("aprobado")) return;
+      ramo.classList.remove("aprobado");
+      actualizarBloqueos();
     });
   });
 });
-ocument.addEventListener("DOMContentLoaded", () => {
-  // Selecciona todos los ramos que tengan estas clases
-  const especiales = document.querySelectorAll(".ramo.tipo-lila, .ramo.tipo-celeste, .ramo.tipo-opr");
 
-  especiales.forEach(ramo => {
-    // Quita la clase 'bloqueado' para que no bloqueen el click
-    ramo.classList.remove("bloqueado");
+/** Esta función revisa todos los ramos y actualiza si deben estar bloqueados o desbloqueados */
+function actualizarBloqueos() {
+  const todos = document.querySelectorAll(".ramo");
 
-    // Agrega listener para marcar como aprobado al click
-    ramo.addEventListener("click", () => {
-      if (!ramo.classList.contains("aprobado")) {
-        ramo.classList.add("aprobado");
+  todos.forEach(ramo => {
+    const prereqs = (ramo.dataset.prereqs || "").trim();
 
-        // Desbloquea cursos dependientes
-        const id = ramo.id;
-        const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
-        dependientes.forEach(dep => {
-          const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim());
-          const todosAprobados = prereqList.every(pid => {
-            const prereqEl = document.getElementById(pid);
-            return prereqEl && prereqEl.classList.contains("aprobado");
-          });
-          if (todosAprobados) {
-            dep.classList.remove("bloqueado");
-          }
-        });
-      }
+    // Si es especial (lila, celeste u OPR), nunca se bloquea
+    if (ramo.classList.contains("tipo-lila") ||
+        ramo.classList.contains("tipo-celeste") ||
+        ramo.classList.contains("tipo-opr")) {
+      ramo.classList.remove("bloqueado");
+      return;
+    }
+
+    if (prereqs === "") {
+      ramo.classList.remove("bloqueado");
+      return;
+    }
+
+    const requisitos = prereqs.split(",").map(id => id.trim());
+    const todosAprobados = requisitos.every(id => {
+      const req = document.getElementById(id);
+      return req && req.classList.contains("aprobado");
     });
+
+    ramo.classList.toggle("bloqueado", !todosAprobados);
   });
-});
+}
