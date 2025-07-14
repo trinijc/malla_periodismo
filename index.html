@@ -1,112 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva Periodismo UC</title>
-  <link rel="stylesheet" href="css/estilos.css" />
-  <style>
-    body { overflow-x: auto; }
-    .malla-container {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .semestre { min-width: 250px; flex-shrink: 0; }
-  </style>
-</head>
-<body>
-      <script src="js/script.js"></script>
-  <h1>Malla Interactiva – Periodismo UC</h1>
-  <div class="malla-container">
-    <!-- ================= SEMESTRE 1 ================= -->
-    <section class="semestre" id="sem1" aria-label="Semestre 1">
-      <h2>Semestre 1</h2>
-      <div class="ramo" id="COM120">Narración de No Ficción (COM120)</div>
-      <div class="ramo" id="COM110">Teoría de la Comunicación Social (COM110)</div>
-      <div class="ramo" id="IHIO205">Historia Mundial Contemporánea (IHIO205)</div>
-      <div class="ramo" id="COM113">Tecnologías de la Comunicación (COM113)</div>
-      <div class="ramo" id="COM100">Desafíos de la Comunicación (COM100)</div>
-      <div class="ramo" id="VRA4000">Integridad Académica en la UC (VRA4000)</div>
-      <div class="ramo tipo-lila" id="COM101">Test de Actualidad IA (COM101)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 2 ================= -->
-    <section class="semestre" id="sem2" aria-label="Semestre 2">
-      <h2>Semestre 2</h2>
-      <div class="ramo" id="SOL126C">Metodología de la Investigación Social (SOL126C)</div>
-      <div class="ramo" id="COM115">Lenguaje Visual (COM115)</div>
-      <div class="ramo" id="COM121">Semiología (COM121)</div>
-      <div class="ramo" id="COM109">Historia de la Comunicación Social (COM109)</div>
-      <div class="ramo" id="COM122">Narración de Ficción (COM122)</div>
-      <div class="ramo tipo-lila" id="COM102">Test de Actualidad IB (COM102)</div>
-      <div class="ramo" id="VRA2000">Test de Inglés (VRA2000)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 3 ================= -->
-    <section class="semestre" id="sem3" aria-label="Semestre 3">
-      <h2>Semestre 3</h2>
-      <div class="ramo" id="COM116">Audiencias (COM116)</div>
-      <div class="ramo" id="COM201" data-prereqs="COM120">Narración Escrita de No Ficción (COM201)</div>
-      <div class="ramo" id="COM204">Teoría de la Noticia (COM204)</div>
-      <div class="ramo tipo-celeste" id="CIENT">Curso del Área Científica</div>
-      <div class="ramo tipo-celeste" id="FIL2001">Filosofía: ¿Para Qué? (FIL2001)</div>
-      <div class="ramo tipo-lila" id="COM103">Test de Actualidad IIA (COM103)</div>
-      <div class="ramo" id="VRA1323">Formación en Docencia (VRA1323)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 4 ================= -->
-    <section class="semestre" id="sem4" aria-label="Semestre 4">
-      <h2>Semestre 4</h2>
-      <div class="ramo" id="EYP230P">Estadística (EYP230P)</div>
-      <div class="ramo" id="COM217" data-prereqs="COM120">Narración Radial de No Ficción (COM217)</div>
-      <div class="ramo" id="COM206" data-prereqs="COM204,COM201">Taller de Periodismo en Prensa (COM206)</div>
-      <div class="ramo" id="ACO264E">Habilidades Comunicativas Orales (ACO264E)</div>
-      <div class="ramo tipo-celeste" id="TTE">Formación Teológica (TTE)</div>
-      <div class="ramo tipo-lila" id="COM104">Test de Actualidad IIB (COM104)</div>
-      <div class="ramo" id="COM1000">Práctica Interna (COM1000 – 20 h)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 5 ================= -->
-    <section class="semestre" id="sem5" aria-label="Semestre 5">
-      <h2>Semestre 5</h2>
-      <div class="ramo" id="COM205">Teoría Democrática (COM205)</div>
-      <div class="ramo" id="COM203" data-prereqs="COM120">Narración Audiovisual de No Ficción (COM203)</div>
-      <div class="ramo" id="COM209" data-prereqs="COM204,COM217">Taller de Periodismo Radial (COM209)</div>
-      <div class="ramo tipo-celeste" id="EST210A">Curso del Área de la Estética (EST210A)</div>
-      <div class="ramo tipo-celeste" id="OFGARTE">OFG (Arte)</div>
-      <div class="ramo tipo-lila" id="TESTIIIA">Test de Actualidad IIIA</div>
-    </section>
-
-    <!-- ================= SEMESTRE 6 ================= -->
-    <section class="semestre" id="sem6" aria-label="Semestre 6">
-      <h2>Semestre 6</h2>
-      <div class="ramo" id="COM117">Narración Interactiva (COM117)</div>
-      <div class="ramo" id="EAE105A">Introducción a la Economía (EAE105A)</div>
-      <div class="ramo" id="COM211" data-prereqs="COM204,COM203">Taller de Periodismo Televisivo (COM211)</div>
-      <div class="ramo tipo-celeste" id="OFGMAT">OFG (Pensamiento Matemático)</div>
-      <div class="ramo tipo-celeste" id="OFGCIT">OFG (Ciencia y Tecnología)</div>
-      <div class="ramo tipo-lila" id="COM106">Test de Actualidad IIIB (COM106)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 7 ================= -->
-    <section class="semestre" id="sem7" aria-label="Semestre 7">
-      <h2>Semestre 7</h2>
-      <div class="ramo" id="COM200" data-prereqs="FIL2001">Ética de la Comunicación (COM200)</div>
-      <div class="ramo" id="COM214">Análisis de la Actualidad Nacional (COM214)</div>
-      <div class="ramo" id="COM208">Narración Gráfica de No Ficción (COM208)</div>
-      <div class="ramo tipo-celeste" id="OFGSALUD">OFG (Salud y Bienestar)</div>
-      <div class="ramo tipo-celeste" id="OFGECO">OFG (Ecología Integral)</div>
-    </section>
-
-    <!-- ================= SEMESTRE 8 ================= -->
-    <section class="semestre" id="sem8" aria-label="Semestre 8">
-      <h2>Semestre 8</h2>
-      <div class="ramo" id="DEL307">Derecho de la Comunicación (DEL307)</div>
-      <div class="ramo" id="COM215">Análisis de la Actualidad Internacional (COM215)</div>
-      <div class="ramo tipo-opr" id="OPR1">Optativo de Profundización (OP
+@@ -1 +1,115 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
@@ -114,66 +6,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Interactiva Periodismo UC</title>
-  <link rel="stylesheet" href="css/estilos.css" />
-  <style>
-    body { overflow-x: auto; }
-    .malla-container {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 1rem;
-      overflow-x: auto;
-      padding: 1rem;
-    }
-    .semestre { min-width: 240px; flex-shrink: 0; }
-  </style>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
   <h1>Malla Interactiva – Periodismo UC</h1>
 
-  <div class="malla-container">
-    <!-- CONTENIDO DE SEMESTRES 1 A 8 (ya está en el documento y no se repite aquí) -->
-
-    <!-- ================= SEMESTRE 8 (continuación) ================= -->
-    <div class="ramo tipo-opr" id="OPR2">Optativo de Profundización (OPR)</div>
-    <div class="ramo tipo-opr" id="OPR3">Optativo de Profundización (OPR)</div>
-    <div class="ramo tipo-celeste" id="OFGCL">OFG (Créditos Libres)</div>
+  <!-- Cada semestre está contenido en un <section> con todos sus ramos -->
+  <!-- Para cada ramo usamos data-prereqs con los ID de sus requisitos separados por comas -->
+  
+  <!-- ================= SEMESTRE 1 ================= -->
+  <section class="semestre" id="sem1" aria-label="Semestre 1">
+    <h2>Semestre 1</h2>
+    <div class="ramo" id="COM120">Narración de No Ficción (COM120)</div>
+    <div class="ramo" id="COM110">Teoría de la Comunicación Social (COM110)</div>
+    <div class="ramo" id="IHIO205">Historia Mundial Contemporánea (IHIO205)</div>
+    <div class="ramo" id="COM113">Tecnologías de la Comunicación (COM113)</div>
+    <div class="ramo" id="COM100">Desafíos de la Comunicación (COM100)</div>
+    <div class="ramo" id="VRA4000">Integridad Académica en la UC (VRA4000)</div>
+    <div class="ramo tipo-lila" id="COM101">Test de Actualidad IA (COM101)</div>
   </section>
 
- <!-- ================= SEMESTRE 9 ================= -->
-    <section class="semestre" id="sem9" aria-label="Semestre 9">
-      <h2>Semestre 9</h2>
-      <div class="ramo" id="COM3501" data-prereqs="SOL126C">Seminario de Investigación (COM3501)</div>
-      <div class="ramo" id="COM3502">Análisis Comparado de Periodismo (COM3502)</div>
-      <div class="ramo" id="COM3503" data-prereqs="COM206,COM209,COM211">Taller de Periodismo Avanzado (COM3503)</div>
-      <div class="ramo" id="COM3500">Economía Política de las Comunicaciones (COM3500)</div>
-      <div class="ramo tipo-opr" id="OPR4">Optativo de Profundización (OPR)</div>
-      <div class="ramo" id="COM290">Práctica Profesional (COM290 – 480 h)</div>
-    </section>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const ramos = document.querySelectorAll(".ramo");
-      ramos.forEach(ramo => {
-        if (ramo.dataset.prereqs) ramo.classList.add("bloqueado");
-      });
-      ramos.forEach(ramo => {
-        ramo.addEventListener("click", () => {
-          if (ramo.classList.contains("bloqueado")) return;
-          ramo.classList.toggle("aprobado");
-          ramos.forEach(r => {
-            const prereqs = r.dataset.prereqs;
-            if (prereqs) {
-              const ids = prereqs.split(",");
-              const ready = ids.every(id => document.getElementById(id.trim())?.classList.contains("aprobado"));
-              if (ready) r.classList.remove("bloqueado");
-              else r.classList.add("bloqueado") & r.classList.remove("aprobado");
-            }
-          });
-        });
-      });
-    });
-  </script>
+  <!-- ================= SEMESTRE 2 ================= -->
+  <section class="semestre" id="sem2" aria-label="Semestre 2">
+    <h2>Semestre 2</h2>
+    <div class="ramo" id="SOL126C">Metodología de la Investigación Social (SOL126C)</div>
+    <div class="ramo" id="COM115">Lenguaje Visual (COM115)</div>
+    <div class="ramo" id="COM121">Semiología (COM121)</div>
+    <div class="ramo" id="COM109">Historia de la Comunicación Social (COM109)</div>
+    <div class="ramo" id="COM122">Narración de Ficción (COM122)</div>
+    <div class="ramo tipo-lila" id="COM102">Test de Actualidad IB (COM102)</div>
+    <div class="ramo" id="VRA2000">Test de Inglés (VRA2000)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 3 ================= -->
+  <section class="semestre" id="sem3" aria-label="Semestre 3">
+    <h2>Semestre 3</h2>
+    <div class="ramo" id="COM116">Audiencias (COM116)</div>
+    <div class="ramo" id="COM201" data-prereqs="COM120">Narración Escrita de No Ficción (COM201)</div>
+    <div class="ramo" id="COM204">Teoría de la Noticia (COM204)</div>
+    <div class="ramo tipo-celeste" id="CIENT">Curso del Área Científica</div>
+    <div class="ramo tipo-celeste" id="FIL2001">Filosofía: ¿Para Qué? (FIL2001)</div>
+    <div class="ramo tipo-lila" id="COM103">Test de Actualidad IIA (COM103)</div>
+    <div class="ramo" id="VRA1323">Formación en Docencia (VRA1323)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 4 ================= -->
+  <section class="semestre" id="sem4" aria-label="Semestre 4">
+    <h2>Semestre 4</h2>
+    <div class="ramo" id="EYP230P">Estadística (EYP230P)</div>
+    <div class="ramo" id="COM217" data-prereqs="COM120">Narración Radial de No Ficción (COM217)</div>
+    <div class="ramo" id="COM206" data-prereqs="COM204,COM201">Taller de Periodismo en Prensa (COM206)</div>
+    <div class="ramo" id="ACO264E">Habilidades Comunicativas Orales (ACO264E)</div>
+    <div class="ramo tipo-celeste" id="TTE">Formación Teológica (TTE)</div>
+    <div class="ramo tipo-lila" id="COM104">Test de Actualidad IIB (COM104)</div>
+    <div class="ramo" id="COM1000">Práctica Interna (COM1000 – 20 h)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 5 ================= -->
+  <section class="semestre" id="sem5" aria-label="Semestre 5">
+    <h2>Semestre 5</h2>
+    <div class="ramo" id="COM205">Teoría Democrática (COM205)</div>
+    <div class="ramo" id="COM203" data-prereqs="COM120">Narración Audiovisual de No Ficción (COM203)</div>
+    <div class="ramo" id="COM209" data-prereqs="COM204,COM217">Taller de Periodismo Radial (COM209)</div>
+    <div class="ramo tipo-celeste" id="EST210A">Curso del Área de la Estética (EST210A)</div>
+    <div class="ramo tipo-celeste" id="OFGARTE">OFG (Arte)</div>
+    <div class="ramo tipo-lila" id="TESTIIIA">Test de Actualidad IIIA</div>
+  </section>
+
+  <!-- ================= SEMESTRE 6 ================= -->
+  <section class="semestre" id="sem6" aria-label="Semestre 6">
+    <h2>Semestre 6</h2>
+    <div class="ramo" id="COM117">Narración Interactiva (COM117)</div>
+    <div class="ramo" id="EAE105A">Introducción a la Economía (EAE105A)</div>
+    <div class="ramo" id="COM211" data-prereqs="COM204,COM203">Taller de Periodismo Televisivo (COM211)</div>
+    <div class="ramo tipo-celeste" id="OFGMAT">OFG (Pensamiento Matemático)</div>
+    <div class="ramo tipo-celeste" id="OFGCIT">OFG (Ciencia y Tecnología)</div>
+    <div class="ramo tipo-lila" id="COM106">Test de Actualidad IIIB (COM106)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 7 ================= -->
+  <section class="semestre" id="sem7" aria-label="Semestre 7">
+    <h2>Semestre 7</h2>
+    <div class="ramo" id="COM200" data-prereqs="FIL2001">Ética de la Comunicación (COM200)</div>
+    <div class="ramo" id="COM214">Análisis de la Actualidad Nacional (COM214)</div>
+    <div class="ramo" id="COM208">Narración Gráfica de No Ficción (COM208)</div>
+    <div class="ramo tipo-celeste" id="OFGSALUD">OFG (Salud y Bienestar)</div>
+    <div class="ramo tipo-celeste" id="OFGECO">OFG (Ecología Integral)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 8 ================= -->
+  <section class="semestre" id="sem8" aria-label="Semestre 8">
+    <h2>Semestre 8</h2>
+    <div class="ramo" id="DEL307">Derecho de la Comunicación (DEL307)</div>
+    <div class="ramo" id="COM215">Análisis de la Actualidad Internacional (COM215)</div>
+    <div class="ramo tipo-opr" id="OPR1">Optativo de Profundización (OPR)</div>
+    <div class="ramo tipo-opr" id="OPR2">Optativo de Profundización (OPR)</div>
+    <div class="ramo tipo-celeste" id="OFGCL">OFG (Créditos Libres)</div>
+  </section>
+
+  <!-- ================= SEMESTRE 9 ================= -->
+  <section class="semestre" id="sem9" aria-label="Semestre 9">
+    <h2>Semestre 9</h2>
+    <div class="ramo" id="COM3501" data-prereqs="SOL126C">Seminario de Investigación (COM3501)</div>
+    <div class="ramo" id="COM3502">Análisis Comparado de Periodismo (COM3502)</div>
+    <div class="ramo" id="COM3503" data-prereqs="COM206,COM209,COM211">Taller de Periodismo Avanzado (COM3503)</div>
+    <div class="ramo" id="ECO3500">Economía Política de las Comunicaciones (3500)</div>
+    <div class="ramo tipo-opr" id="OPR3">Optativo de Profundización (OPR)</div>
+    <div class="ramo" id="COM290">Práctica Profesional (COM290 – 480 h)</div>
+  </section>
 </body>
 </html>
     <script src="js/script.js"></script>
