@@ -68,3 +68,42 @@ function actualizarBloqueos() {
     ramo.classList.toggle("bloqueado", !todosAprobados);
   });
 }
+document.querySelectorAll(".ramo").forEach(ramo => {
+  ramo.addEventListener("dblclick", () => {
+    if (ramo.classList.contains("aprobado")) {
+      ramo.classList.remove("aprobado");
+
+      // Vuelve a revisar los bloqueos porque al quitar un ramo aprobado,
+      // otros podrían volver a bloquearse.
+      const actualizarBloqueos = () => {
+        document.querySelectorAll(".ramo").forEach(r => {
+          const prereqs = (r.dataset.prereqs || "").trim();
+
+          if (
+            r.classList.contains("tipo-lila") ||
+            r.classList.contains("tipo-celeste") ||
+            r.classList.contains("tipo-opr")
+          ) {
+            r.classList.remove("bloqueado");
+            return;
+          }
+
+          if (prereqs === "") {
+            r.classList.remove("bloqueado");
+            return;
+          }
+
+          const requisitos = prereqs.split(",").map(id => id.trim());
+          const todosAprobados = requisitos.every(pid => {
+            const prereqEl = document.getElementById(pid);
+            return prereqEl && prereqEl.classList.contains("aprobado");
+          });
+
+          r.classList.toggle("bloqueado", !todosAprobados);
+        });
+      };
+
+      actualizarBloqueos();
+    }
+  });
+});
