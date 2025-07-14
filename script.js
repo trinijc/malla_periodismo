@@ -45,3 +45,8 @@ function aprobarCurso(ramo) {
     }
   });
 }
+    if (todosAprobados) {
+      dep.classList.remove("bloqueado");
+    }
+  });
+}
