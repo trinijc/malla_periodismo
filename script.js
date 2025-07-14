@@ -1,12 +1,13 @@
 // script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const ramos = document.querySelectorAll(".ramo");
 
   ramos.forEach(ramo => {
     const prereqs = ramo.dataset.prereqs;
+
+    // Si tiene prerrequisitos y no están todos aprobados, lo bloqueamos
     if (prereqs) {
-      const requisitos = prereqs.split(",").map(p => p.trim());
+      const requisitos = prereqs.split(",").map(id => id.trim());
       const todosAprobados = requisitos.every(id => {
         const req = document.getElementById(id);
         return req && req.classList.contains("aprobado");
@@ -17,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
- ramo.addEventListener("click", () => {
+    // Siempre le agregamos el event listener
+    ramo.addEventListener("click", () => {
       if (!ramo.classList.contains("bloqueado") && !ramo.classList.contains("aprobado")) {
         aprobarCurso(ramo);
       }
