@@ -121,3 +121,37 @@ ul, ol {
 .semestre::before, .semestre::after {
   content: none !important;
 }
+/* Cambiar el contenedor a una sola columna tipo lista */
+#contenedor-malla {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0 1rem;
+}
+
+/* Semestres con línea sutil y padding */
+.semestre {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.semestre h2 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3rem;
+}
+
+/* Ramos con borde inferior suave y padding, sin cambiar colores */
+.ramo {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+/* Hover suave sin modificar color ni fondo */
+.ramo:hover {
+  background-color: #f9f9f9;
+}
