@@ -39,7 +39,12 @@ function aprobarCurso(ramo) {
       const prereqEl = document.getElementById(pid);
       return prereqEl && prereqEl.classList.contains("aprobado");
     });
-
+ramo.addEventListener("click", () => {
+  console.log("Clicked on:", ramo.id);
+  if (!ramo.classList.contains("bloqueado") && !ramo.classList.contains("aprobado")) {
+    aprobarCurso(ramo);
+  }
+});
     if (todosAprobados) {
       dep.classList.remove("bloqueado");
     }
