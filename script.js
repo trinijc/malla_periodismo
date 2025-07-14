@@ -50,3 +50,49 @@ ramo.addEventListener("click", () => {
     }
   });
 }
+/* --------- MALLA INTERACTIVA --------- */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const ramos = document.querySelectorAll(".ramo");
+
+  // 1) Bloquear ramos con requisitos pendientes
+  ramos.forEach(ramo => {
+    prepararEstadoInicial(ramo);
+
+    // 2) Añadir click: aprobar si está desbloqueado
+    ramo.addEventListener("click", () => {
+      if (ramo.classList.contains("bloqueado") || ramo.classList.contains("aprobado")) return;
+      aprobarRamo(ramo);
+    });
+  });
+
+});
+
+/* ----- Función: marca aprobado y desbloquea dependientes ----- */
+function aprobarRamo(ramo) {
+  ramo.classList.add("aprobado");
+
+  // Desbloquear ramos que dependan de éste
+  const id = ramo.id;
+  document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`).forEach(dep => {
+    if (todosPrereqsAprobados(dep)) dep.classList.remove("bloqueado");
+  });
+}
+
+/* ----- Comprueba si un ramo ya cumple todos sus prerequisitos ----- */
+function todosPrereqsAprobados(ramo) {
+  const prereqs = (ramo.dataset.prereqs || "")
+                   .split(",").map(p => p.trim()).filter(Boolean);
+  if (prereqs.length === 0) return true;
+  return prereqs.every(pid => {
+    const req = document.getElementById(pid);
+    return req && req.classList.contains("aprobado");
+  });
+}
+
+/* ----- Al iniciar, decide si un ramo parte bloqueado o no ----- */
+function prepararEstadoInicial(ramo) {
+  if (!todosPrereqsAprobados(ramo)) {
+    ramo.classList.add("bloqueado");
+  }
+}
