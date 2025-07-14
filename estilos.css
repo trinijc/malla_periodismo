@@ -33,6 +33,7 @@ h1 {
   gap: 1.5rem;
   align-items: start;
   padding-bottom: 2rem;
+  scroll-snap-type: none !important;
 }
 
 /* ---------- SEMESTRES EN COLUMNA ---------- */
@@ -44,6 +45,7 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 0.8rem;
+  scroll-snap-align: none !important;
 }
 
 .semestre h2 {
