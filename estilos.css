@@ -11,7 +11,7 @@
   --celeste: #d6f1ff;
   --verde-opr: #d6fcd6;
 }
-
+.highlight { outline: 3px dashed #ff80bf; }
 /* ---------- RESET BÁSICO ---------- */
 body {
   margin: 0;
@@ -106,4 +106,8 @@ h1 {
 
 .ramo:not(.bloqueado):not(.aprobado) {
   animation: desbloqueo 0.2s ease;
+}
+.ramo {
+  position: relative;
+  z-index: 1;
 }
