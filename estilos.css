@@ -150,8 +150,3 @@ ul, ol {
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
-
-/* Hover suave sin modificar color ni fondo */
-.ramo:hover {
-  background-color: #f9f9f9;
-}
