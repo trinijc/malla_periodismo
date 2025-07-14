@@ -99,3 +99,11 @@ h1 {
 .bloqueado.tipo-opr {
   background: var(--gris);
 }
+@keyframes desbloqueo {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+.ramo:not(.bloqueado):not(.aprobado) {
+  animation: desbloqueo 0.2s ease;
+}
