@@ -44,3 +44,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+ocument.addEventListener("DOMContentLoaded", () => {
+  // Selecciona todos los ramos que tengan estas clases
+  const especiales = document.querySelectorAll(".ramo.tipo-lila, .ramo.tipo-celeste, .ramo.tipo-opr");
+
+  especiales.forEach(ramo => {
+    // Quita la clase 'bloqueado' para que no bloqueen el click
+    ramo.classList.remove("bloqueado");
+
+    // Agrega listener para marcar como aprobado al click
+    ramo.addEventListener("click", () => {
+      if (!ramo.classList.contains("aprobado")) {
+        ramo.classList.add("aprobado");
+
+        // Desbloquea cursos dependientes
+        const id = ramo.id;
+        const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
+        dependientes.forEach(dep => {
+          const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim());
+          const todosAprobados = prereqList.every(pid => {
+            const prereqEl = document.getElementById(pid);
+            return prereqEl && prereqEl.classList.contains("aprobado");
+          });
+          if (todosAprobados) {
+            dep.classList.remove("bloqueado");
+          }
+        });
+      }
+    });
+  });
+});
