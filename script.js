@@ -1,4 +1,4 @@
-@@ -1 +1,39 @@
+
 /* script.js */
 
 // Al cargar la página, bloqueamos todos los cursos con prerequisitos
