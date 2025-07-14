@@ -79,13 +79,6 @@ h1 {
 .aprobado {
   background: var(--verde-aprobado);
   opacity: 0.85;
-}
-
-.aprobado::before {
-  content: none;
-}
-
-.aprobado > * {
   text-decoration: line-through;
 }
 
@@ -100,17 +93,6 @@ h1 {
 
 .tipo-opr {
   background: var(--verde-opr);
-}
-
-/* Si un curso especial está bloqueado, que predomine el gris */
-.bloqueado.tipo-lila,
-.bloqueado.tipo-celeste,
-.bloqueado.tipo-opr {
-  background: var(--gris);
-}
-@keyframes desbloqueo {
-  from { transform: scale(1.05); }
-  to { transform: scale(1); }
 }
 
 .ramo:not(.bloqueado):not(.aprobado) {
