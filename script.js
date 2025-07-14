@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ramos.forEach(ramo => {
     const prereqs = ramo.dataset.prereqs;
 
-    // Si tiene prerequisitos, lo marcamos como bloqueado
     if (prereqs && prereqs.trim() !== "") {
       const requisitos = prereqs.split(",").map(id => id.trim());
       const todosAprobados = requisitos.every(id => {
@@ -14,7 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!todosAprobados) {
         ramo.classList.add("bloqueado");
+      } else {
+        ramo.classList.remove("bloqueado"); // Asegura que si ya cumple prereqs no quede bloqueado
       }
+    } else {
+      ramo.classList.remove("bloqueado"); // Sin prereqs, no bloqueado
     }
 
     // Listener para marcar como aprobado
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ramo.classList.add("aprobado");
 
-      // Revisa si desbloquea otros cursos
+      // Desbloquea los dependientes
       const id = ramo.id;
       const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
 
