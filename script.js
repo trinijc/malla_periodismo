@@ -1,39 +1,43 @@
+// script.js
 
-/* script.js */
-
-// Al cargar la página, bloqueamos todos los cursos con prerequisitos
 window.addEventListener("DOMContentLoaded", () => {
   const cursos = document.querySelectorAll(".ramo");
+
   cursos.forEach(curso => {
     const prereqs = curso.dataset.prereqs;
     if (prereqs) {
       curso.classList.add("bloqueado");
     }
-    // Añadimos el listener a todos (aunque bloqueados no reaccionarán)
-    curso.addEventListener("click", () => aprobarCurso(curso));
+
+    const btn = curso.querySelector(".btn-aprobar");
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation(); // evita que se dispare el click en el div
+        aprobarCurso(curso);
+      });
+    }
   });
 });
 
 function aprobarCurso(curso) {
-  // Evita aprobar dos veces
   if (curso.classList.contains("aprobado")) return;
 
+  curso.classList.remove("bloqueado");
   curso.classList.add("aprobado");
 
-  // Desbloquea los que dependan de éste
+  // Buscar cursos que dependan de este
   const id = curso.id;
   const dependientes = document.querySelectorAll(`[data-prereqs*="${id}"]`);
 
   dependientes.forEach(dep => {
-    // Comprueba si todos sus prerequisitos están aprobados
     const prereqIds = dep.dataset.prereqs.split(",").map(p => p.trim());
     const todosListos = prereqIds.every(pid => {
-      const prereqEl = document.getElementById(pid);
-      return prereqEl && prereqEl.classList.contains("aprobado");
+      const el = document.getElementById(pid);
+      return el && el.classList.contains("aprobado");
     });
+
     if (todosListos) {
       dep.classList.remove("bloqueado");
-      // Vuelve a aplicar su color original (por si era tipo especial)
     }
   });
 }
