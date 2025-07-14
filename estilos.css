@@ -28,32 +28,27 @@ h1 {
 
 /* ---------- CONTENEDOR GENERAL ---------- */
 #contenedor-malla {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  align-items: start;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 2rem;
   padding-bottom: 2rem;
-  scroll-snap-type: none !important;
 }
 
 /* ---------- SEMESTRES EN COLUMNA ---------- */
 .semestre {
   display: flex;
   flex-direction: column;
-  min-height: 100px;
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 0.8rem;
-  scroll-snap-align: none !important;
+  align-items: flex-start;
+  min-width: 220px;
 }
 
 .semestre h2 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
   text-align: center;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  writing-mode: horizontal-tb;
+  transform: none;
+  padding: 0;
 }
 
 /* ---------- CURSOS ---------- */
@@ -107,17 +102,4 @@ h1 {
   position: relative;
   z-index: 1;
 }
-#contenedor-malla, .semestre {
-  background-image: none !important;
-  background: none !important;
-  list-style: none !important;
-}
 
-ul, ol {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
-
-.semestre::before, .semestre::after {
-  content: none !important;
-}
