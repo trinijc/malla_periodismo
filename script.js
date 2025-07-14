@@ -5,38 +5,43 @@ document.addEventListener("DOMContentLoaded", () => {
   ramos.forEach(ramo => {
     const prereqs = ramo.dataset.prereqs;
 
+    // Si tiene prerrequisitos y no están aprobados, lo bloqueamos
     if (prereqs) {
       const requisitos = prereqs.split(",").map(id => id.trim());
-      const aprobados = requisitos.every(id => {
+      const todosAprobados = requisitos.every(id => {
         const req = document.getElementById(id);
         return req && req.classList.contains("aprobado");
       });
 
-      if (!aprobados) {
+      if (!todosAprobados) {
         ramo.classList.add("bloqueado");
       }
     }
 
+    // Le damos la funcionalidad de botón: al hacer click se aprueba
     ramo.addEventListener("click", () => {
       if (!ramo.classList.contains("bloqueado") && !ramo.classList.contains("aprobado")) {
-        ramo.classList.add("aprobado");
-
-        // Revisar si desbloquea otros
-        const id = ramo.id;
-        const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
-
-        dependientes.forEach(dep => {
-          const requisitos = dep.dataset.prereqs.split(",").map(p => p.trim());
-          const listos = requisitos.every(pid => {
-            const prereqEl = document.getElementById(pid);
-            return prereqEl && prereqEl.classList.contains("aprobado");
-          });
-
-          if (listos) {
-            dep.classList.remove("bloqueado");
-          }
-        });
+        aprobarCurso(ramo);
       }
     });
   });
 });
+
+function aprobarCurso(ramo) {
+  ramo.classList.add("aprobado");
+
+  const id = ramo.id;
+  const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
+
+  dependientes.forEach(dep => {
+    const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim());
+    const todosAprobados = prereqList.every(pid => {
+      const prereqEl = document.getElementById(pid);
+      return prereqEl && prereqEl.classList.contains("aprobado");
+    });
+
+    if (todosAprobados) {
+      dep.classList.remove("bloqueado");
+    }
+  });
+}
