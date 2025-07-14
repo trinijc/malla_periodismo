@@ -68,42 +68,47 @@ function actualizarBloqueos() {
     ramo.classList.toggle("bloqueado", !todosAprobados);
   });
 }
+// --- Toggle de aprobación con un solo clic ---
 document.querySelectorAll(".ramo").forEach(ramo => {
-  ramo.addEventListener("dblclick", () => {
-    if (ramo.classList.contains("aprobado")) {
-      ramo.classList.remove("aprobado");
+  ramo.addEventListener("click", () => {
+    if (ramo.classList.contains("bloqueado")) return;
 
-      // Vuelve a revisar los bloqueos porque al quitar un ramo aprobado,
-      // otros podrían volver a bloquearse.
-      const actualizarBloqueos = () => {
-        document.querySelectorAll(".ramo").forEach(r => {
-          const prereqs = (r.dataset.prereqs || "").trim();
+    // Alterna estado de aprobado
+    ramo.classList.toggle("aprobado");
 
-          if (
-            r.classList.contains("tipo-lila") ||
-            r.classList.contains("tipo-celeste") ||
-            r.classList.contains("tipo-opr")
-          ) {
-            r.classList.remove("bloqueado");
-            return;
-          }
+    // Revisa si otros ramos ahora pueden desbloquearse
+    document.querySelectorAll(".ramo").forEach(r => {
+      const prereqs = (r.dataset.prereqs || "").trim();
 
-          if (prereqs === "") {
-            r.classList.remove("bloqueado");
-            return;
-          }
+      // Los especiales (lila, celeste, opr) siempre desbloqueados
+      if (
+        r.classList.contains("tipo-lila") ||
+        r.classList.contains("tipo-celeste") ||
+        r.classList.contains("tipo-opr")
+      ) {
+        r.classList.remove("bloqueado");
+        return;
+      }
 
-          const requisitos = prereqs.split(",").map(id => id.trim());
-          const todosAprobados = requisitos.every(pid => {
-            const prereqEl = document.getElementById(pid);
-            return prereqEl && prereqEl.classList.contains("aprobado");
-          });
+      // Si no tiene prerequisitos, está desbloqueado
+      if (prereqs === "") {
+        r.classList.remove("bloqueado");
+        return;
+      }
 
-          r.classList.toggle("bloqueado", !todosAprobados);
-        });
-      };
+      // Si los tiene, evalúa si se cumplen
+      const requisitos = prereqs.split(",").map(id => id.trim());
+      const todosAprobados = requisitos.every(pid => {
+        const prereqEl = document.getElementById(pid);
+        return prereqEl && prereqEl.classList.contains("aprobado");
+      });
 
-      actualizarBloqueos();
-    }
+      if (todosAprobados) {
+        r.classList.remove("bloqueado");
+      } else {
+        r.classList.add("bloqueado");
+        r.classList.remove("aprobado"); // se desmarca si queda bloqueado
+      }
+    });
   });
 });
