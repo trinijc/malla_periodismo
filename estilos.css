@@ -1,4 +1,3 @@
-
 /* -------------------------------------------------- */
 /* estilos.css */
 
@@ -27,21 +26,29 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.semestre {
-  margin-bottom: 2rem;
-}
-
-.semestre h2 {
-  margin: 1rem 0;
-}
-.semestre {
-  margin-bottom: 2rem;
+/* ---------- CONTENEDOR GENERAL ---------- */
+#contenedor-malla {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
-  gap: 1rem;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* ---------- SEMESTRES EN COLUMNA ---------- */
+.semestre {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 220px;
+}
+
+.semestre h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  writing-mode: horizontal-tb;
+  transform: none;
+  padding: 0;
 }
 
 /* ---------- CURSOS ---------- */
@@ -50,10 +57,14 @@ h1 {
   border: 2px solid #ccc;
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  margin: 0.35rem 0;
+  margin-bottom: 0.6rem;
   cursor: pointer;
   transition: background 0.2s ease, opacity 0.2s ease;
   user-select: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Estado bloqueado */
@@ -88,28 +99,3 @@ h1 {
 .bloqueado.tipo-opr {
   background: var(--gris);
 }
-.semestre h2 {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  margin: 0;
-  padding-right: 1rem;
-  flex-shrink: 0;
-}
-.ramo {
-  min-width: 200px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.btn-aprobar {
-  margin-top: 8px;
-  padding: 5px 8px;
-  background-color: #7a377c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* ------------------------------ */
