@@ -14,106 +14,273 @@
   <!-- Cada semestre está contenido en un <section> con todos sus ramos -->
   <!-- Para cada ramo usamos data-prereqs con los ID de sus requisitos separados por comas -->
   
-  <!-- ================= SEMESTRE 1 ================= -->
+<!-- ================= SEMESTRE 1 ================= -->
   <section class="semestre" id="sem1" aria-label="Semestre 1">
     <h2>Semestre 1</h2>
-    <div class="ramo" id="COM120">Narración de No Ficción (COM120)</div>
-    <div class="ramo" id="COM110">Teoría de la Comunicación Social (COM110)</div>
-    <div class="ramo" id="IHIO205">Historia Mundial Contemporánea (IHIO205)</div>
-    <div class="ramo" id="COM113">Tecnologías de la Comunicación (COM113)</div>
-    <div class="ramo" id="COM100">Desafíos de la Comunicación (COM100)</div>
-    <div class="ramo" id="VRA4000">Integridad Académica en la UC (VRA4000)</div>
-    <div class="ramo tipo-lila" id="COM101">Test de Actualidad IA (COM101)</div>
+    <div class="ramo" id="COM120" data-prereqs="">
+      Narración de No Ficción (COM120)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM110" data-prereqs="">
+      Teoría de la Comunicación Social (COM110)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="IHIO205" data-prereqs="">
+      Historia Mundial Contemporánea (IHIO205)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM113" data-prereqs="">
+      Tecnologías de la Comunicación (COM113)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM100" data-prereqs="">
+      Desafíos de la Comunicación (COM100)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="VRA4000" data-prereqs="">
+      Integridad Académica en la UC (VRA4000)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo tipo-lila" id="COM101" data-prereqs="">
+      Test de Actualidad IA (COM101)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
   </section>
 
-  <!-- ================= SEMESTRE 2 ================= -->
+ <!-- ================= SEMESTRE 2 ================= -->
   <section class="semestre" id="sem2" aria-label="Semestre 2">
     <h2>Semestre 2</h2>
-    <div class="ramo" id="SOL126C">Metodología de la Investigación Social (SOL126C)</div>
-    <div class="ramo" id="COM115">Lenguaje Visual (COM115)</div>
-    <div class="ramo" id="COM121">Semiología (COM121)</div>
-    <div class="ramo" id="COM109">Historia de la Comunicación Social (COM109)</div>
-    <div class="ramo" id="COM122">Narración de Ficción (COM122)</div>
-    <div class="ramo tipo-lila" id="COM102">Test de Actualidad IB (COM102)</div>
-    <div class="ramo" id="VRA2000">Test de Inglés (VRA2000)</div>
+    <div class="ramo" id="SOL126C" data-prereqs="">
+      Metodología de la Investigación Social (SOL126C)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM115" data-prereqs="">
+      Lenguaje Visual (COM115)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM121" data-prereqs="">
+      Semiología (COM121)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM109" data-prereqs="">
+      Historia de la Comunicación Social (COM109)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM122" data-prereqs="">
+      Narración de Ficción (COM122)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo tipo-lila" id="COM102" data-prereqs="">
+      Test de Actualidad IB (COM102)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="VRA2000" data-prereqs="">
+      Test de Inglés (VRA2000)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
   </section>
 
   <!-- ================= SEMESTRE 3 ================= -->
   <section class="semestre" id="sem3" aria-label="Semestre 3">
     <h2>Semestre 3</h2>
-    <div class="ramo" id="COM116">Audiencias (COM116)</div>
-    <div class="ramo" id="COM201" data-prereqs="COM120">Narración Escrita de No Ficción (COM201)</div>
-    <div class="ramo" id="COM204">Teoría de la Noticia (COM204)</div>
-    <div class="ramo tipo-celeste" id="CIENT">Curso del Área Científica</div>
-    <div class="ramo tipo-celeste" id="FIL2001">Filosofía: ¿Para Qué? (FIL2001)</div>
-    <div class="ramo tipo-lila" id="COM103">Test de Actualidad IIA (COM103)</div>
-    <div class="ramo" id="VRA1323">Formación en Docencia (VRA1323)</div>
+    <div class="ramo" id="COM116" data-prereqs="">
+      Audiencias (COM116)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo bloqueado" id="COM201" data-prereqs="COM120">
+      Narración Escrita de No Ficción (COM201)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="COM204" data-prereqs="">
+      Teoría de la Noticia (COM204)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo tipo-celeste" id="CIENT" data-prereqs="">
+      Curso del Área Científica
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo tipo-celeste" id="FIL2001" data-prereqs="">
+      Filosofía: ¿Para Qué? (FIL2001)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo tipo-lila" id="COM103" data-prereqs="">
+      Test de Actualidad IIA (COM103)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
+    <div class="ramo" id="VRA1323" data-prereqs="">
+      Formación en Docencia (VRA1323)
+      <button class="btn-aprobar">Aprobar</button>
+    </div>
   </section>
 
   <!-- ================= SEMESTRE 4 ================= -->
   <section class="semestre" id="sem4" aria-label="Semestre 4">
-    <h2>Semestre 4</h2>
-    <div class="ramo" id="EYP230P">Estadística (EYP230P)</div>
-    <div class="ramo" id="COM217" data-prereqs="COM120">Narración Radial de No Ficción (COM217)</div>
-    <div class="ramo" id="COM206" data-prereqs="COM204,COM201">Taller de Periodismo en Prensa (COM206)</div>
-    <div class="ramo" id="ACO264E">Habilidades Comunicativas Orales (ACO264E)</div>
-    <div class="ramo tipo-celeste" id="TTE">Formación Teológica (TTE)</div>
-    <div class="ramo tipo-lila" id="COM104">Test de Actualidad IIB (COM104)</div>
-    <div class="ramo" id="COM1000">Práctica Interna (COM1000 – 20 h)</div>
-  </section>
+  <h2>Semestre 4</h2>
+  <div class="ramo" id="EYP230P" data-prereqs="">
+    Estadística (EYP230P)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM217" data-prereqs="COM120">
+    Narración Radial de No Ficción (COM217)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM206" data-prereqs="COM204,COM201">
+    Taller de Periodismo en Prensa (COM206)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="ACO264E" data-prereqs="">
+    Habilidades Comunicativas Orales (ACO264E)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="TTE" data-prereqs="">
+    Formación Teológica (TTE)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-lila" id="COM104" data-prereqs="">
+    Test de Actualidad IIB (COM104)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM1000" data-prereqs="">
+    Práctica Interna (COM1000 – 20 h)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
 
   <!-- ================= SEMESTRE 5 ================= -->
-  <section class="semestre" id="sem5" aria-label="Semestre 5">
-    <h2>Semestre 5</h2>
-    <div class="ramo" id="COM205">Teoría Democrática (COM205)</div>
-    <div class="ramo" id="COM203" data-prereqs="COM120">Narración Audiovisual de No Ficción (COM203)</div>
-    <div class="ramo" id="COM209" data-prereqs="COM204,COM217">Taller de Periodismo Radial (COM209)</div>
-    <div class="ramo tipo-celeste" id="EST210A">Curso del Área de la Estética (EST210A)</div>
-    <div class="ramo tipo-celeste" id="OFGARTE">OFG (Arte)</div>
-    <div class="ramo tipo-lila" id="TESTIIIA">Test de Actualidad IIIA</div>
-  </section>
+<section class="semestre" id="sem5" aria-label="Semestre 5">
+  <h2>Semestre 5</h2>
+  <div class="ramo" id="COM205" data-prereqs="">
+    Teoría Democrática (COM205)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM203" data-prereqs="COM120">
+    Narración Audiovisual de No Ficción (COM203)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM209" data-prereqs="COM204,COM217">
+    Taller de Periodismo Radial (COM209)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="EST210A" data-prereqs="">
+    Curso del Área de la Estética (EST210A)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGARTE" data-prereqs="">
+    OFG (Arte)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-lila" id="TESTIIIA" data-prereqs="">
+    Test de Actualidad IIIA
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
 
   <!-- ================= SEMESTRE 6 ================= -->
-  <section class="semestre" id="sem6" aria-label="Semestre 6">
-    <h2>Semestre 6</h2>
-    <div class="ramo" id="COM117">Narración Interactiva (COM117)</div>
-    <div class="ramo" id="EAE105A">Introducción a la Economía (EAE105A)</div>
-    <div class="ramo" id="COM211" data-prereqs="COM204,COM203">Taller de Periodismo Televisivo (COM211)</div>
-    <div class="ramo tipo-celeste" id="OFGMAT">OFG (Pensamiento Matemático)</div>
-    <div class="ramo tipo-celeste" id="OFGCIT">OFG (Ciencia y Tecnología)</div>
-    <div class="ramo tipo-lila" id="COM106">Test de Actualidad IIIB (COM106)</div>
-  </section>
+ <section class="semestre" id="sem6" aria-label="Semestre 6">
+  <h2>Semestre 6</h2>
+  <div class="ramo" id="COM117" data-prereqs="">
+    Narración Interactiva (COM117)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="EAE105A" data-prereqs="">
+    Introducción a la Economía (EAE105A)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM211" data-prereqs="COM204,COM203">
+    Taller de Periodismo Televisivo (COM211)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGMAT" data-prereqs="">
+    OFG (Pensamiento Matemático)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGCIT" data-prereqs="">
+    OFG (Ciencia y Tecnología)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-lila" id="COM106" data-prereqs="">
+    Test de Actualidad IIIB (COM106)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
 
   <!-- ================= SEMESTRE 7 ================= -->
-  <section class="semestre" id="sem7" aria-label="Semestre 7">
-    <h2>Semestre 7</h2>
-    <div class="ramo" id="COM200" data-prereqs="FIL2001">Ética de la Comunicación (COM200)</div>
-    <div class="ramo" id="COM214">Análisis de la Actualidad Nacional (COM214)</div>
-    <div class="ramo" id="COM208">Narración Gráfica de No Ficción (COM208)</div>
-    <div class="ramo tipo-celeste" id="OFGSALUD">OFG (Salud y Bienestar)</div>
-    <div class="ramo tipo-celeste" id="OFGECO">OFG (Ecología Integral)</div>
-  </section>
-
+ <section class="semestre" id="sem7" aria-label="Semestre 7">
+  <h2>Semestre 7</h2>
+  <div class="ramo bloqueado" id="COM200" data-prereqs="FIL2001">
+    Ética de la Comunicación (COM200)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM214" data-prereqs="">
+    Análisis de la Actualidad Nacional (COM214)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM208" data-prereqs="">
+    Narración Gráfica de No Ficción (COM208)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGSALUD" data-prereqs="">
+    OFG (Salud y Bienestar)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGECO" data-prereqs="">
+    OFG (Ecología Integral)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
   <!-- ================= SEMESTRE 8 ================= -->
-  <section class="semestre" id="sem8" aria-label="Semestre 8">
-    <h2>Semestre 8</h2>
-    <div class="ramo" id="DEL307">Derecho de la Comunicación (DEL307)</div>
-    <div class="ramo" id="COM215">Análisis de la Actualidad Internacional (COM215)</div>
-    <div class="ramo tipo-opr" id="OPR1">Optativo de Profundización (OPR)</div>
-    <div class="ramo tipo-opr" id="OPR2">Optativo de Profundización (OPR)</div>
-    <div class="ramo tipo-celeste" id="OFGCL">OFG (Créditos Libres)</div>
-  </section>
+ <section class="semestre" id="sem8" aria-label="Semestre 8">
+  <h2>Semestre 8</h2>
+  <div class="ramo" id="DEL307" data-prereqs="">
+    Derecho de la Comunicación (DEL307)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM215" data-prereqs="">
+    Análisis de la Actualidad Internacional (COM215)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-opr" id="OPR1" data-prereqs="">
+    Optativo de Profundización (OPR)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-opr" id="OPR2" data-prereqs="">
+    Optativo de Profundización (OPR)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-celeste" id="OFGCL" data-prereqs="">
+    OFG (Créditos Libres)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
 
   <!-- ================= SEMESTRE 9 ================= -->
-  <section class="semestre" id="sem9" aria-label="Semestre 9">
-    <h2>Semestre 9</h2>
-    <div class="ramo" id="COM3501" data-prereqs="SOL126C">Seminario de Investigación (COM3501)</div>
-    <div class="ramo" id="COM3502">Análisis Comparado de Periodismo (COM3502)</div>
-    <div class="ramo" id="COM3503" data-prereqs="COM206,COM209,COM211">Taller de Periodismo Avanzado (COM3503)</div>
-    <div class="ramo" id="ECO3500">Economía Política de las Comunicaciones (3500)</div>
-    <div class="ramo tipo-opr" id="OPR3">Optativo de Profundización (OPR)</div>
-    <div class="ramo" id="COM290">Práctica Profesional (COM290 – 480 h)</div>
-  </section>
+ <section class="semestre" id="sem9" aria-label="Semestre 9">
+  <h2>Semestre 9</h2>
+  <div class="ramo bloqueado" id="COM3501" data-prereqs="SOL126C">
+    Seminario de Investigación (COM3501)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM3502" data-prereqs="">
+    Análisis Comparado de Periodismo (COM3502)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo bloqueado" id="COM3503" data-prereqs="COM206,COM209,COM211">
+    Taller de Periodismo Avanzado (COM3503)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="ECO3500" data-prereqs="">
+    Economía Política de las Comunicaciones (3500)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo tipo-opr" id="OPR3" data-prereqs="">
+    Optativo de Profundización (OPR)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+  <div class="ramo" id="COM290" data-prereqs="">
+    Práctica Profesional (COM290 – 480 h)
+    <button class="btn-aprobar">Aprobar</button>
+  </div>
+</section>
+ <script src="js/script.js"></script>
 </body>
 </html>
-    <script src="js/script.js"></script>
