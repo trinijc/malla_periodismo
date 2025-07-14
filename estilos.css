@@ -107,3 +107,17 @@ h1 {
   position: relative;
   z-index: 1;
 }
+#contenedor-malla, .semestre {
+  background-image: none !important;
+  background: none !important;
+  list-style: none !important;
+}
+
+ul, ol {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.semestre::before, .semestre::after {
+  content: none !important;
+}
