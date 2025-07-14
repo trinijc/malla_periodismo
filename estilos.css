@@ -78,8 +78,15 @@ h1 {
 /* Estado aprobado */
 .aprobado {
   background: var(--verde-aprobado);
-  text-decoration: line-through;
   opacity: 0.85;
+}
+
+.aprobado::before {
+  content: none;
+}
+
+.aprobado > * {
+  text-decoration: line-through;
 }
 
 /* Colores especiales por tipo */
