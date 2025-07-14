@@ -4,14 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ramos.forEach(ramo => {
     const prereqs = ramo.dataset.prereqs;
 
-    // Asegura que siempre tenga el listener
-    ramo.addEventListener("click", () => {
-      if (!ramo.classList.contains("bloqueado") && !ramo.classList.contains("aprobado")) {
-        aprobarCurso(ramo);
-      }
-    });
-
-    // Si tiene requisitos, verifica si ya están aprobados
+    // Si tiene prerequisitos, lo marcamos como bloqueado
     if (prereqs && prereqs.trim() !== "") {
       const requisitos = prereqs.split(",").map(id => id.trim());
       const todosAprobados = requisitos.every(id => {
@@ -23,25 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
         ramo.classList.add("bloqueado");
       }
     }
+
+    // Listener para marcar como aprobado
+    ramo.addEventListener("click", () => {
+      if (ramo.classList.contains("bloqueado") || ramo.classList.contains("aprobado")) return;
+
+      ramo.classList.add("aprobado");
+
+      // Revisa si desbloquea otros cursos
+      const id = ramo.id;
+      const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
+
+      dependientes.forEach(dep => {
+        const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim());
+        const todosAprobados = prereqList.every(pid => {
+          const prereqEl = document.getElementById(pid);
+          return prereqEl && prereqEl.classList.contains("aprobado");
+        });
+
+        if (todosAprobados) {
+          dep.classList.remove("bloqueado");
+        }
+      });
+    });
   });
 });
-
-function aprobarCurso(ramo) {
-  ramo.classList.add("aprobado");
-
-  // Revisa si desbloquea otros cursos
-  const id = ramo.id;
-  const dependientes = document.querySelectorAll(`.ramo[data-prereqs*="${id}"]`);
-
-  dependientes.forEach(dep => {
-    const prereqList = dep.dataset.prereqs.split(",").map(p => p.trim()).filter(Boolean);
-    const todosAprobados = prereqList.every(pid => {
-      const prereqEl = document.getElementById(pid);
-      return prereqEl && prereqEl.classList.contains("aprobado");
-    });
-
-    if (todosAprobados) {
-      dep.classList.remove("bloqueado");
-    }
-  });
-}
