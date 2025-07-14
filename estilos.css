@@ -82,9 +82,9 @@ h1 {
 
 /* Estado aprobado */
 .aprobado {
-  background: var(--verde-aprobado);
-  opacity: 0.85;
   text-decoration: line-through;
+  opacity: 1;
+  background: inherit !important;
 }
 
 /* Colores especiales por tipo */
